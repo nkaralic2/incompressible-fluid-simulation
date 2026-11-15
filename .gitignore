@@ -1,0 +1,26 @@
+# CMake build folders
+/build/
+/build_*/
+
+# Compiled files
+*.exe
+*.o
+*.obj
+*.dll
+
+# Temporary logs
+compiler_log.txt
+build_errors.txt
+
+# Editor and system files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Generated simulation output
+/output/
+/output_final_check
+
+# Build folders
+/build/
+/build_*/
