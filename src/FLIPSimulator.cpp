@@ -531,11 +531,28 @@ void FLIPSimulator::applyBoundaryConditions() {
             }
         }
     }
+
+        // Tangencijalne brzine uz zidove (free-slip)
+    for (int i = 1; i < NX; ++i) {
+        grid.u[grid.uIndex(i, 0)] =
+            grid.u[grid.uIndex(i, 1)];
+
+        grid.u[grid.uIndex(i, NY - 1)] =
+            grid.u[grid.uIndex(i, NY - 2)];
+    }
+
+    for (int j = 1; j < NY; ++j) {
+        grid.v[grid.vIndex(0, j)] =
+            grid.v[grid.vIndex(1, j)];
+
+        grid.v[grid.vIndex(NX - 1, j)] =
+            grid.v[grid.vIndex(NX - 2, j)];
+    }
 }
 
 // ============================================================================
 // STAGE 4: Pressure projection
-// ============================================================================
+// ===========================================================================
 
 void FLIPSimulator::solvePressure(float dt) {
     // Compute divergence before projection (for reporting)

@@ -373,6 +373,10 @@ int main(int argc, char* argv[]) {
     config.numSteps = 0;
     config.enableOutput = false;
 
+    // Testiranje PIC/FLIP omjera i pritiska
+    config.flipAlpha = 0.85f;
+    config.pressureIterations = 250;
+
     FLIPSimulator simulator(config);
     simulator.initialize();
 
